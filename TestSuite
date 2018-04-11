@@ -9,11 +9,15 @@ import org.junit.Test;
 public class testSuite {
 	
 	contactInfo testString;
+	personalInfo testPersonalString;
 	
 	@Before
 	public void setUp() {
 		testString = new contactInfo();
+		testPersonalString = new personalInfo();
 	}
+	
+	//test contactInfo
 	
 	@Test
 	public void testFirstName() {
@@ -21,11 +25,11 @@ public class testSuite {
 		assertEquals("Sally", testString.getFirstName());
 	}
 	
-	/*@Test
+	@Test
 	public void testFirstNameFalse() {
 		testString.setFirstName("Sally");
 		assertNotEquals("Sallly", testString.getFirstName());
-	}*/
+	}
 	
 	@Test
 	public void testLastName() {
@@ -34,9 +38,21 @@ public class testSuite {
 	}
 	
 	@Test
+	public void testLastNameFalse() {
+		testString.setLastName("Hansen");
+		assertNotEquals("Handsen", testString.getFirstName());
+	}
+	
+	@Test
 	public void testStreetAddress1() {
 		testString.setStreetAddress1("1234 Coffee Ave");
 		assertEquals("1234 Coffee Ave", testString.getStreetAddress1());
+	}
+	
+	@Test
+	public void testStreetAddress1False() {
+		testString.setStreetAddress1("1234 Coffee Ave");
+		assertNotEquals("1224 Coffee Ave", testString.getStreetAddress1());
 	}
 
 	@Test
@@ -46,9 +62,21 @@ public class testSuite {
 	}
 	
 	@Test
+	public void testCityFalse() {
+		testString.setCity("Chocolate");
+		assertNotEquals("Cacao", testString.getCity());
+	}
+	
+	@Test
 	public void testState() {
 		testString.setState("California");
 		assertEquals("California", testString.getState());
+	}
+	
+	@Test
+	public void testStateFalse() {
+		testString.setState("California");
+		assertNotEquals("Cali", testString.getState());
 	}
 	
 	@Test
@@ -58,15 +86,84 @@ public class testSuite {
 	}
 	
 	@Test
+	public void testZipCodeFalse() {
+		testString.setZipCode("12345");
+		assertNotEquals("12346", testString.getZipCode());
+	}
+	
+	@Test
 	public void testEmail() {
 		testString.setEmail("shansen20@jcu.edu");
 		assertEquals("shansen20@jcu.edu", testString.getEmail());
 	}
 	
 	@Test
+	public void testEmailFalse() {
+		testString.setEmail("shansen20@jcu.edu");
+		assertNotEquals("shansen20@edu", testString.getEmail());
+	}
+	
+	
+	@Test
 	public void testPhoneNumber() {
 		testString.setPhoneNumber("123-123-1234");
 		assertEquals("123-123-1234", testString.getPhoneNumber());
+	}
+	
+	@Test
+	public void testPhoneNumberFalse() {
+		testString.setPhoneNumber("123-123-1234");
+		assertNotEquals("123-123-4321", testString.getPhoneNumber());
+	}
+	
+	//start of personalInfo
+	
+	@Test
+	public void testDateOfBirth() {
+		testPersonalString.setDateOfBirth("12/25/2000");
+		assertEquals("12/25/2000", testPersonalString.getDateOfBirth());
+	}
+	
+	@Test
+	public void testGender() {
+		testPersonalString.setGender("Female");
+		assertEquals("Female", testPersonalString.getGender());
+	}
+	
+	@Test
+	public void testMaritalStatus() {
+		testPersonalString.setMaritalStatus("Married");
+		assertEquals("Married", testPersonalString.getMaritalStatus());
+	}
+	
+	@Test
+	public void testRace() {
+		testPersonalString.setRace("Caucasian");
+		assertEquals("Caucasian", testPersonalString.getRace());
+	}
+	
+	@Test
+	public void testEmpStatus() {
+		testPersonalString.setEmpStatus("Employed");
+		assertEquals("Employed", testPersonalString.getEmpStatus());
+	}
+	
+	@Test
+	public void testSocialSecurity() {
+		testPersonalString.setSocialSecurity("123-456-7890");
+		assertEquals("123-456-7890", testPersonalString.getSocialSecurity());
+	}
+	
+	@Test
+	public void testContactPref() {
+		testPersonalString.setContactPref("phone");
+		assertEquals("phone", testPersonalString.getContactPref());
+	}
+	
+	@Test
+	public void testLanguage() {
+		testPersonalString.setLanguage("English");
+		assertEquals("English", testPersonalString.getLanguage());
 	}
 	
 }
