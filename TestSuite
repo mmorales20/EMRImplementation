@@ -1,0 +1,72 @@
+package EMR;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+
+public class testSuite {
+	
+	contactInfo testString;
+	
+	@Before
+	public void setUp() {
+		testString = new contactInfo();
+	}
+	
+	@Test
+	public void testFirstName() {
+		testString.setFirstName("Sally");
+		assertEquals("Sally", testString.getFirstName());
+	}
+	
+	/*@Test
+	public void testFirstNameFalse() {
+		testString.setFirstName("Sally");
+		assertNotEquals("Sallly", testString.getFirstName());
+	}*/
+	
+	@Test
+	public void testLastName() {
+		testString.setLastName("Hansen");
+		assertEquals("Hansen", testString.getLastName());
+	}
+	
+	@Test
+	public void testStreetAddress1() {
+		testString.setStreetAddress1("1234 Coffee Ave");
+		assertEquals("1234 Coffee Ave", testString.getStreetAddress1());
+	}
+
+	@Test
+	public void testCity() {
+		testString.setCity("Chocolate");
+		assertEquals("Chocolate", testString.getCity());
+	}
+	
+	@Test
+	public void testState() {
+		testString.setState("California");
+		assertEquals("California", testString.getState());
+	}
+	
+	@Test
+	public void testZipCode() {
+		testString.setZipCode("12345");
+		assertEquals("12345", testString.getZipCode());
+	}
+	
+	@Test
+	public void testEmail() {
+		testString.setEmail("shansen20@jcu.edu");
+		assertEquals("shansen20@jcu.edu", testString.getEmail());
+	}
+	
+	@Test
+	public void testPhoneNumber() {
+		testString.setPhoneNumber("123-123-1234");
+		assertEquals("123-123-1234", testString.getPhoneNumber());
+	}
+	
+}
