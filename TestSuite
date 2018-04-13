@@ -2,7 +2,10 @@ package EMR;
 
 import static org.junit.Assert.*;
 
+import java.io.FileNotFoundException;
+
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 
@@ -10,11 +13,17 @@ public class testSuite {
 	
 	contactInfo testString;
 	personalInfo testPersonalString;
+	patientStats testStatString;
+	patientStats testStatDouble;
+	emrConvert converter;
 	
 	@Before
 	public void setUp() {
 		testString = new contactInfo();
 		testPersonalString = new personalInfo();
+		testStatString = new patientStats(); 
+		testStatDouble = new patientStats();
+		converter = new emrConvert();
 	}
 	
 	//test contactInfo
@@ -166,4 +175,73 @@ public class testSuite {
 		assertEquals("English", testPersonalString.getLanguage());
 	}
 	
+	@Test
+	public void testFolderStatus() {
+		testStatString.setFolderStatus("exist");
+		assertEquals("exist", testStatString.getFolderStatus());
+	}
+	
+	@Test
+	public void testPatientID() {
+		testStatString.setPatientID("0000-11111");
+		assertEquals("0000-11111", testStatString.getPatientID());
+	}
+	
+	@Test
+	public void testHeight() {
+		testStatString.setHeight(64.0);
+		assertEquals(64.0, testStatDouble.getHeight(), 64.0);
+	}
+	
+	@Test
+	public void testWeight() {
+		testStatString.setWeight(140.0);
+		assertEquals(140.0, testStatDouble.getWeight(), 140.0);
+	}
+	
+	@Test
+	public void testBp() {
+		testStatString.setBp("158/90");
+		assertEquals("158/90", testStatString.getBp());
+	}
+	
+	@Test
+	public void testBMI() {
+		testStatString.setBMI(25.2);
+		assertEquals(25.2, testStatDouble.getBMI(), 64.0);
+	}
+	
+	@Test
+	public void testSmoker() {
+		testStatString.setSmoker("frequent");
+		assertEquals("frequent", testStatString.getSmoker());
+	}
+	
+	@Test
+	public void testAlcohol() {
+		testStatString.setAlcohol("0.00");
+		assertEquals("0.00", testStatString.getAlcohol());
+	}
+	
+	@Test
+	public void testDrugUse() {
+		testStatString.setDrugUse("never");
+		assertEquals("never", testStatString.getDrugUse());
+	}
+	
+	@Test
+	public void testUploadSuccessful() throws FileNotFoundException {
+		converter.uploadFile();
+		
+		assertTrue(converter.getIsUpload());
+	}
+	
+	@Test
+	public void testFirstLine() throws FileNotFoundException {
+		converter.readFile();
+		assertTrue(converter.getIsRead());
+		
+	}
+	
+
 }
