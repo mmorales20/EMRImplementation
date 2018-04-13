@@ -1,0 +1,99 @@
+package EMR;
+
+public class patientStats {
+
+	private String folderStatus, patientID, bp, smoker, alcohol, drugUse;
+	private double height, weight, BMI;
+	
+	public patientStats() {
+		
+	}
+	
+	
+	public String getFolderStatus() {
+		return folderStatus;
+	}
+
+	public void setFolderStatus(String folderStatus) {
+		this.folderStatus = folderStatus;
+	}
+
+	public String getPatientID() {
+		return patientID;
+	}
+
+	public void setPatientID(String patientID) {
+		this.patientID = patientID;
+	}
+
+
+	public double getHeight() {
+		return height;
+	}
+
+
+	public void setHeight(double height) {
+		this.height = height;
+	}
+
+
+	public double getWeight() {
+		return weight;
+	}
+
+
+	public void setWeight(double weight) {
+		this.weight = weight;
+	}
+
+
+	public String getBp() {
+		return bp;
+	}
+
+
+	public void setBp(String bp) {
+		this.bp = bp;
+	}
+
+
+	public double getBMI() {
+		return BMI;
+	}
+
+
+	public void setBMI(double bMI) {
+		BMI = bMI;
+	}
+
+
+	public String getSmoker() {
+		return smoker;
+	}
+
+	public void setSmoker(String smoker) {
+		this.smoker = smoker;
+	}
+
+	public String getAlcohol() {
+		return alcohol;
+	}
+
+	public void setAlcohol(String alcohol) {
+		this.alcohol = alcohol;
+	}
+
+	public String getDrugUse() {
+		return drugUse;
+	}
+
+	public void setDrugUse(String drugUse) {
+		this.drugUse = drugUse;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
