@@ -1,0 +1,72 @@
+package EMR;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class emrConvert {
+	String newDoc;
+	File file;
+	String firstLine;
+	
+	public boolean getIsUpload() {
+		return isUpload;
+	}
+
+	public void setUpload(boolean isUpload) {
+		this.isUpload = isUpload;
+	}
+
+	
+	public String getFirstLine() {
+		return firstLine;
+	}
+
+	public void setFirstLine(String firstLine) {
+		this.firstLine = firstLine;
+	}
+
+
+	public boolean isUpload = false;
+	public boolean read = false;
+	
+	
+	
+	public boolean getIsRead() {
+		return read;
+	}
+
+	public void setRead(boolean read) {
+		this.read = read;
+	}
+
+	public void uploadFile () throws FileNotFoundException {
+		file = new File("H:\\desktop\\FormatB.txt");
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(file);
+		while (sc.hasNextLine()) {
+			//System.out.println(sc.nextLine());
+			newDoc = sc.nextLine();
+			//System.out.println(newDoc);
+		}
+	
+		isUpload = true;
+	}
+	
+	public void readFile() throws FileNotFoundException {
+		file = new File("H:\\desktop\\FormatB.txt");
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(file);
+		for (int i = 0; i < 1; i++) {
+			firstLine = sc.nextLine();
+			System.out.println(firstLine);
+		}
+		
+		read = true;
+	}
+	
+//	public static void main(String[] args) throws FileNotFoundException {
+//		System.out.println(newDoc);
+//		}
+
+}
