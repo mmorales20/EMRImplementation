@@ -1,0 +1,113 @@
+package emr;
+
+public class AtoBFInalForm extends emrConvert {
+	contactInfo c = new contactInfo();
+	personalInfo p = new personalInfo();
+	patientStats s = new patientStats();
+	MedHistory m = new MedHistory();
+	currentVisits v = new currentVisits();
+	
+	String contactinfo;
+	String personalinfo;
+	String patientstats;
+	String medHistory;
+	String currentVisit;
+	
+	public String contactInfoAB () {
+		contactinfo = "First Name: " + c.getFirstName() + "\\n";
+		contactinfo += "Middle Name: " + c.getMiddleName() + "\\n";
+		contactinfo += "Last Name: " + c.getLastName() + "\\n";
+		contactinfo += "Street address 1: " + c.getStreetAddress1() + "\\n";
+		contactinfo += "Street address 2: " + c.getStreetAddress2() + "\\n";
+		contactinfo += "Region: " + c.getRegion() + "\\n";
+		contactinfo += "City: " + c.getCity() + "\\n";
+		contactinfo += "Zip Code: " + c.getZipCode() + "\\n";
+		contactinfo += "Telephone: " + c.getPhoneNumber() + "\\n";
+		
+		return contactinfo;	
+	}
+	
+	public String personalInfoAB () {
+		personalinfo = "Birth Date: " + p.getDateOfBirth() + "\\n";
+		personalinfo += "Middle Name: " + p.getGender() + "\\n";
+		personalinfo += "Occupation: " + p.getEmpStatus() + "\\n";
+		personalinfo += "Marital Status: " + p.getMaritalStatus() + "\\n";
+
+		return personalinfo;
+		
+	}
+	
+	public String patientStatsAB () {
+		patientstats = "Smoking Status: " + s.getSmoker() + "\\n";
+		patientstats += "Drinking Status: " + s.getAlcohol()+ "\\n";
+		patientstats += "Drug Status: " + s.getDrugUse() + "\\n";
+		patientstats += "Height: " + s.getHeight() + "\\n";
+		patientstats += "Weight: " + s.getWeight() + "\\n";
+		patientstats += "Blood Pressure: " + s.getBp() + "\\n";
+		patientstats += "BMI: " + s.getBMI() + "\\n";
+
+		return patientstats;
+		
+	}
+	
+	public String medicalHistoryAB () {
+		medHistory = "Allergy(numOfAllergies): " + m.getNumOfAllergies() + "\\n";
+		medHistory += "Allergy 1: " + m.getAllergies() + "\\n";
+		medHistory += "Effect 1: " + m.getAllergies()+ "\\n";
+		medHistory += "Allergy 2: " + m.getAllergies() + "\\n";
+		medHistory += "Effect 2: " + m.getAllergies() + "\\n";
+		medHistory += "Allergy (numOfAllergies): " + m.getAllergies() + "\\n";
+		
+		medHistory += "Number of Usual Medications: " + m.getNumOfMedications() + "\\n";
+		medHistory += "Medication 1: " + m.getMedications() + "\\n";
+		medHistory += "Medication 2: " + m.getMedications() + "\\n";
+		medHistory += "Medication (numOfMedications): " + m.getMedications() + "\\n";
+		
+		medHistory += "Number of Past History Entries: " + m.getNumOfLastVisits() + "\\n";
+		medHistory += "Past History Entry 1: " + m.getLastVisits() + "\\n";
+		medHistory += "Past History Entry (numOfLastVisits): " + m.getLastVisits()+ "\\n";
+		
+		medHistory += "Number of Social History Entries: " + m.getNumOfFamilyHistory()+ "\\n";
+		medHistory += "Social History Entry 1: " + m.getFamilyHistory() + "\\n";
+		medHistory += "Social History Entry (numOfFamilyHistory): " + m.getFamilyHistory()+ "\\n";
+
+		return medHistory;
+		
+	}
+	
+
+	public String currentVisitsAB () {
+		currentVisit = "Number of Problems: " + v.getNumOfProblems()+ "\\n";
+		currentVisit += "Problem 1 Date: " + v.getProblems() + "\\n";
+		currentVisit += "Problem 1 Description: " + v.getProblems() + "\\n";
+		currentVisit += "Problem 2 Date: " + v.getProblems() + "\\n";
+		currentVisit += "Problem 2 Description: " + v.getProblems() + "\\n";
+		currentVisit += "Problem (numOfProblems) Date: " + v.getProblems() + "\\n";
+		currentVisit += "Problem (numOfProblems) Description: " + v.getProblems() + "\\n";
+		
+		currentVisit += "ALK PHOS: " + v.getLabReport() + "\\n";
+		currentVisit += "CHLORIDE: " + v.getLabReport() + "\\n";
+		currentVisit += "CO2: " + v.getLabReport() + "\\n";
+		currentVisit += "CREATININE: " + v.getLabReport() + "\\n";
+		currentVisit += "PO4: " + v.getLabReport() + "\\n";
+		currentVisit += "POTASSIUM: " +v.getLabReport() + "\\n";
+		currentVisit += "CHOLESTEROL: " + v.getLabReport() + "\\n";
+		currentVisit += "TRIGLYCERIDES: " + v.getLabReport() + "\\n";
+		currentVisit += "HDL: " + v.getLabReport() + "\\n";
+		currentVisit += "LDL: " + v.getLabReport() + "\\n";
+		
+		currentVisit += "Number of Social History Entries: " + m.getNumOfFamilyHistory()+ "\\n";
+		currentVisit += "Social History Entry 1: " + m.getFamilyHistory() + "\\n";
+		currentVisit += "Social History Entry (numOfFamilyHistory): " + m.getFamilyHistory()+ "\\n";
+
+		return currentVisit;
+		
+	}
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
