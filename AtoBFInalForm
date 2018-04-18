@@ -12,6 +12,12 @@ public class AtoBFInalForm extends emrConvert {
 	String patientstats;
 	String medHistory;
 	String currentVisit;
+	String formatAB;
+	
+	public String formatAB () {
+		formatAB = contactInfoAB() + personalInfoAB() + patientStatsAB() + medicalHistoryAB() + currentVisitsAB();
+		return formatAB;
+	}
 	
 	public String contactInfoAB () {
 		contactinfo = "First Name: " + c.getFirstName() + "\\n";
@@ -111,3 +117,4 @@ public class AtoBFInalForm extends emrConvert {
 	}
 
 }
+
