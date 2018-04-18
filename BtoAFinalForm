@@ -1,0 +1,107 @@
+package emr;
+
+public class BtoAFinalForm extends emrConvert {
+	contactInfo c = new contactInfo();
+	personalInfo p = new personalInfo();
+	patientStats s = new patientStats();
+	MedHistory m = new MedHistory();
+	currentVisits v = new currentVisits();
+	
+	String contactinfo;
+	String personalinfo;
+	String patientstats;
+	String medHistory;
+	String currentVisit;
+	String formatBA;
+	
+	public String formatBA () {
+		formatBA = contactInfoBA() + personalInfoBA() + patientStatsBA() + medicalHistoryBA() + currentVisitsBA();
+		return formatBA;
+	}
+	
+	public String contactInfoBA () {
+		contactinfo = "<EMR format A>" + "\\n";
+		contactinfo += "<patient information>"+ "\\n";
+		contactinfo += "<patient ID>" + c.getPatientID() + "</patient ID>" + "\\n";
+		contactinfo += "<name>" + c.getLastName() + ", " + c.getFirstName() + "</name>" + "\\n";
+		contactinfo += "<home phone>" + c.getPhoneNumber() + "</home phone>" + "\\n";
+		contactinfo += "<address>" + c.getStreetAddress1() + ", " + c.getStreetAddress2() + "," + c.getCity() + ", " + c.getRegion()
+		+ ", " + c.getZipCode() + "</address>"+"\\n";
+		
+		
+		return contactinfo;	
+	}
+	
+	public String personalInfoBA () {
+		personalinfo = "<birthdate>" + p.getDateOfBirth() + "</birthdate>" + "\\n";
+		personalinfo += "<gender>" + p.getGender()+ "</gender>" + "\\n";
+		personalinfo += "<marital status>" + p.getMaritalStatus() + "</marital status>" + "\\n";
+		personalinfo += "<race>" + p.getRace() + "</race>" + "\\n";
+		personalinfo += "<contact by>" + p.getContactPref() + "</contact by>" + "\\n";
+		personalinfo += "<employment>" + p.getEmpStatus() + "</employment>" + "\\n";
+		personalinfo += "<social security>" + p.getSocialSecurity() + "</social security>" + "\\n";
+		
+
+		return personalinfo;
+		
+	}
+	
+	public String patientStatsBA () {
+		patientstats = "<smoker>" + s.getSmoker() + "</smoker>" + "\\n";
+		patientstats += "<drinker>" + s.getAlcohol() + "</drinker>" + "\\n";
+
+		return patientstats;
+		
+	}
+	
+	public String medicalHistoryBA () {
+		medHistory = "<allergies>" + "\\n";
+		medHistory += "		<allergy>" + m.getAllergies() + "</allergy>" + "\\n";
+		medHistory += "</allergies>" + "\\n";
+		
+		medHistory +=  "<medications>" + "\\n";
+		medHistory += "		<medication1>" + m.getMedications() + "</medication1>" + "\\n";
+		medHistory += "		<medication2>" + m.getMedications() + "</medication2>" + "\\n";
+		medHistory +=  "</medications>" + "\\n";
+		
+		return medHistory;
+		
+	}
+	
+
+	public String currentVisitsBA () {
+		currentVisit = "<problems>" + "\\n";
+		currentVisit += "		<problem1>" + v.getProblems() + "</problem1>" + "\\n";
+		currentVisit += "		<problem2>" + v.getProblems() + "</problem2>" + "\\n";
+		currentVisit += "</problems>" + "\\n";
+		
+		currentVisit += "<treatments>" + "\\n";
+		currentVisit +=  "		<treatment1>" + v.getTreatments() + "</treatment1>" + "\\n";
+		currentVisit +=  "		<treatment2>" + v.getTreatments() + "</treatment2>" + "\\n";
+		currentVisit += "</treatments>" + "\\n";
+		
+		
+		currentVisit += "<lab  report>" + "\\n";
+		currentVisit += "		<alk phos>" +v.getLabReport()+ "</alk phos>" + "\\n";
+		currentVisit += "		<bun>" +v.getLabReport()+ "</bun>" + "\\n";
+		currentVisit += "		<calcium>" +v.getLabReport()+ "</calcium>" + "\\n";
+		currentVisit += "		<co2>" +v.getLabReport()+ "</co2>" + "\\n";
+		currentVisit += "		<potassium>" +v.getLabReport()+ "</potassium>" + "\\n";
+		currentVisit += "		<sodium>" +v.getLabReport()+ "</sodium>" + "\\n";
+		currentVisit += "		<uric acid>" +v.getLabReport()+ "</uric acid>" + "\\n";
+		currentVisit += "		<triglycerides>" +v.getLabReport()+ "</triglycerides>" + "\\n";
+		currentVisit += "		<hdl>" +v.getLabReport()+ "</hdl>" + "\\n";
+		currentVisit += "		<ldl>" +v.getLabReport()+ "</ldl>" + "\\n";
+		currentVisit += "</lab  report>" + "\\n";
+		
+		return currentVisit;
+		
+	}
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
