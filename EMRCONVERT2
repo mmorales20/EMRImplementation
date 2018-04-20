@@ -1,0 +1,86 @@
+package EMR;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class emrConvert {
+	String newDoc;
+	File inputFile;
+	Boolean isTags;
+	String[] all;
+	List<String> item;
+	ArrayList<String> fileB = new ArrayList<String>();
+	
+	public ArrayList<String> getFileB()
+	{
+		return fileB;
+	}
+	
+	
+	public boolean getIsUpload() {
+		return isUpload;
+	}
+
+	public void setUpload(boolean isUpload) {
+		this.isUpload = isUpload;
+	}
+
+	public boolean isUpload = false;
+
+	public void uploadFile () throws FileNotFoundException {
+		String contact, splitLine[], splitName[];
+		
+		inputFile = new File("H:\\desktop\\FormatB.txt");
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(inputFile);
+		contact = sc.nextLine();
+		
+		// Getting first and last name from string
+		splitLine = contact.split(","); 
+		splitName = splitLine[0].split(" ");
+		fileB.add(splitName[0]);
+		fileB.add(splitName[1]);
+
+		while (sc.hasNextLine()) {
+			newDoc = sc.nextLine();	
+			fileB.add(newDoc);
+			
+		}
+		
+		for(int index=0; index<fileB.size(); index++ )
+		{
+			System.out.println(fileB.get(index));
+		}
+		
+		if(getFileExtension(inputFile).contains("txt")) {
+			isTags = true;
+			
+		}
+		else {
+			isTags = false;
+		}
+		
+		System.out.println(getFileExtension(inputFile));
+		System.out.println(isTags);
+		
+		isUpload = true;
+	}
+	
+	
+	private static String getFileExtension(File file) {
+        String fileName = file.getName();
+        if(fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0) {
+        	
+        	 return fileName.substring(fileName.lastIndexOf(".")+1);
+        }
+        else {
+        	
+        	return "";
+        }
+    }
+	
+	
+}
