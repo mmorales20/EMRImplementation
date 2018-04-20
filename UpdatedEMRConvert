@@ -1,0 +1,132 @@
+package EMR;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class emrConvert {
+	String newDoc;
+	File inputFile;
+	Boolean isTags;
+	String[] all;
+	List<String> item;
+	ArrayList<String> fileB = new ArrayList<String>();
+	
+	public ArrayList<String> getFileB()
+	{
+		return fileB;
+	}
+	
+	
+	public boolean getIsUpload() {
+		return isUpload;
+	}
+
+	public void setUpload(boolean isUpload) {
+		this.isUpload = isUpload;
+	}
+
+	public boolean isUpload = false;
+
+	public void uploadFile () throws FileNotFoundException {
+		String contact, splitLine[], splitName[], splitAddress[], address, cell, birthGender, splitLine2[], status, substring;
+		
+		inputFile = new File("H:\\desktop\\FormatB.txt");
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(inputFile);
+		contact = sc.nextLine();
+		
+		// Getting first and last name from string
+		splitLine = contact.split(","); 
+		splitName = splitLine[0].split(" ");
+		fileB.add(splitName[0]);
+		fileB.add(splitName[1]);
+		
+		//address2
+		contact = sc.nextLine();
+		//System.out.println(contact);
+		fileB.add(contact);
+		
+		
+		address = sc.nextLine();
+		splitLine = address.split(", "); 
+		splitAddress = splitLine;
+		
+		fileB.add(splitAddress[0]);
+		fileB.add(splitAddress[1]);
+		fileB.add(splitAddress[2]);
+		
+		cell = sc.nextLine();
+		splitLine = cell.split(": ");
+		fileB.add(splitLine[1]);
+		
+		//blankLines
+		contact = sc.nextLine();
+		//contact = sc.nextLine();
+		
+		
+		birthGender = sc.nextLine();
+		splitLine = birthGender.split(" "); 
+		splitName = splitLine;
+		splitLine2 = splitName[1].split("	");
+		fileB.add(splitLine2[0]);
+		fileB.add(splitName[3]);
+		
+		contact = sc.nextLine();
+		contact = sc.nextLine();
+		
+		status = sc.nextLine();
+		substring = status.substring(9,status.length());
+		fileB.add(substring);
+		
+		status = sc.nextLine();
+		substring = status.substring(10,status.length());
+		fileB.add(substring);
+		
+		status = sc.nextLine();
+		substring = status.substring(9,status.length());
+		fileB.add(substring);
+		
+
+		while (sc.hasNextLine()) {
+			newDoc = sc.nextLine();	
+			fileB.add(newDoc);
+			
+		}
+		
+		for(int index=0; index<fileB.size(); index++ )
+		{
+			System.out.println(fileB.get(index));
+		}
+		
+		if(getFileExtension(inputFile).contains("txt")) {
+			isTags = true;
+			
+		}
+		else {
+			isTags = false;
+		}
+		
+		System.out.println(getFileExtension(inputFile));
+		System.out.println(isTags);
+		
+		isUpload = true;
+	}
+	
+	
+	private static String getFileExtension(File file) {
+        String fileName = file.getName();
+        if(fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0) {
+        	
+        	 return fileName.substring(fileName.lastIndexOf(".")+1);
+        }
+        else {
+        	
+        	return "";
+        }
+    }
+	
+	
+}
