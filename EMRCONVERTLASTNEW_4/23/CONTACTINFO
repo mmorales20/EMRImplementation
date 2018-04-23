@@ -1,0 +1,131 @@
+package EMR;
+
+//import java.io.File;
+//import java.io.FileNotFoundException;
+//import java.util.Scanner;
+import java.util.ArrayList;
+//import java.util.Array;
+import java.util.List;
+
+public class contactInfo extends emrConvert {
+	
+	private String firstName;
+	private String lastName;
+	private String streetAddress1;
+	private String streetAddress2;
+	private String city;
+	private String state;
+	private String zipCode;
+	private String email;
+	private String phoneNumber;
+	private String patientID;
+	private String region;
+	//private ArrayList<String> parts = new ArrayList<String>();
+	//private String contact;
+	List<String> items;
+	ArrayList<String> fileB;
+	
+	
+	public contactInfo(ArrayList<String> fileB) {
+		firstName = null;
+		lastName = null;
+		this.fileB = fileB;
+		region = null;
+		patientID = null;
+	}
+	
+	public void readEmrContactInfo (boolean isTags) {
+		
+	}
+	
+	public String getRegion() {
+		return region;
+	}
+
+	public void setRegion(String region) {
+		this.region = region;
+	}
+
+	public String getPatientID() {
+		return patientID;
+	}
+
+	public void setPatientID(String patientID) {
+		this.patientID = patientID;
+	}
+
+	public String getStreetAddress1() {
+		return streetAddress1;
+	}
+
+	public void setStreetAddress1(String streetAddress1) {
+		this.streetAddress1 = streetAddress1.toString();
+	}
+
+	public String getStreetAddress2() {
+		return streetAddress2;
+	}
+
+	public void setStreetAddress2(String streetAddress2) {
+		this.streetAddress2 = streetAddress2.toString();
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getZipCode() {
+		return zipCode;
+	}
+
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) { 
+		this.firstName = firstName.toString();
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName.toString();
+	}
+	
+	
+
+}
