@@ -1,0 +1,71 @@
+package EMR;
+
+public class currentVisits extends emrConvert {
+
+	private int numOfProblems;
+	private String [] problems;
+	private int numOfSymptoms;
+	private String [] symptoms;
+	private int numOfComplaints;
+	private String [] complaints;
+	private String labReport;
+	private int numOfTreatments;
+	private String [] treatments;
+	public int getNumOfProblems() {
+		return numOfProblems;
+	}
+	public void setNumOfProblems(int numOfProblems) {
+		this.numOfProblems = numOfProblems;
+	}
+	public String[] getProblems() {
+		return problems;
+	}
+	public void setProblems(String[] problems) {
+		this.problems = problems;
+	}
+	public int getNumOfSymptoms() {
+		return numOfSymptoms;
+	}
+	public void setNumOfSymptoms(int numOfSymptoms) {
+		this.numOfSymptoms = numOfSymptoms;
+	}
+	public String[] getSymptoms() {
+		return symptoms;
+	}
+	public void setSymptoms(String[] symptoms) {
+		this.symptoms = symptoms;
+	}
+	public int getNumOfComplaints() {
+		return numOfComplaints;
+	}
+	public void setNumOfComplaints(int numOfComplaints) {
+		this.numOfComplaints = numOfComplaints;
+	}
+	public String[] getComplaints() {
+		return complaints;
+	}
+	public void setComplaints(String[] complaints) {
+		this.complaints = complaints;
+	}
+	public String getLabReport() {
+		return labReport;
+	}
+	public void setLabReport(String labReport) {
+		this.labReport = labReport;
+	}
+	public int getNumOfTreatments() {
+		return numOfTreatments;
+	}
+	public void setNumOfTreatments(int numOfTreatments) {
+		this.numOfTreatments = numOfTreatments;
+	}
+	public String[] getTreatments() {
+		return treatments;
+	}
+	public void setTreatments(String[] treatments) {
+		this.treatments = treatments;
+	}
+	
+	
+}
+
