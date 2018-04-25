@@ -1,0 +1,373 @@
+package emr;
+import static org.junit.Assert.*;
+
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+
+import org.junit.Before;
+import org.junit.Test;
+
+
+public class testSuite {
+	
+	contactInfo testString;
+	personalInfo testPersonalString;
+	patientStats testStatString;
+	patientStats testStatDouble;
+	emrConvert converter;
+	ArrayList<String> fileFormatB;	
+	MedHistory testMedHistoryString;
+	currentVisits testcurrentVisitsString;
+	
+	@Before
+	public void setUp() throws FileNotFoundException {
+		converter = new emrConvert();
+		converter.uploadFile();
+		fileFormatB = converter.getFileB();
+		testString = new contactInfo(fileFormatB);
+		testPersonalString = new personalInfo();
+		testStatString = new patientStats(); 
+		testMedHistoryString = new MedHistory();
+		testcurrentVisitsString = new currentVisits();
+	
+	}
+	
+	//test contactInfo
+	
+	@Test
+	public void testFirstName() {
+		testString.setFirstName("Sally");
+		assertEquals("Sally", testString.getFirstName());
+	}
+	
+	@Test
+	public void testFirstNameFalse() {
+		testString.setFirstName("Sally");
+		assertNotEquals("Sallly", testString.getFirstName());
+	}
+	
+	@Test
+	public void testLastName() {
+		testString.setLastName("Hansen");
+		assertEquals("Hansen", testString.getLastName());
+	}
+	
+	@Test
+	public void testLastNameFalse() {
+		testString.setLastName("Hansen");
+		assertNotEquals("Handsen", testString.getFirstName());
+	}
+	
+	@Test
+	public void testStreetAddress1() {
+		testString.setStreetAddress1("1234 Coffee Ave");
+		assertEquals("1234 Coffee Ave", testString.getStreetAddress1());
+	}
+	
+	@Test
+	public void testStreetAddress1False() {
+		testString.setStreetAddress1("1234 Coffee Ave");
+		assertNotEquals("1224 Coffee Ave", testString.getStreetAddress1());
+	}
+
+	@Test
+	public void testCity() {
+		testString.setCity("Chocolate");
+		assertEquals("Chocolate", testString.getCity());
+	}
+	
+	@Test
+	public void testCityFalse() {
+		testString.setCity("Chocolate");
+		assertNotEquals("Cacao", testString.getCity());
+	}
+	
+	@Test
+	public void testState() {
+		testString.setState("California");
+		assertEquals("California", testString.getState());
+	}
+	
+	@Test
+	public void testStateFalse() {
+		testString.setState("California");
+		assertNotEquals("Cali", testString.getState());
+	}
+	
+	@Test
+	public void testZipCode() {
+		testString.setZipCode("12345");
+		assertEquals("12345", testString.getZipCode());
+	}
+	
+	@Test
+	public void testZipCodeFalse() {
+		testString.setZipCode("12345");
+		assertNotEquals("12346", testString.getZipCode());
+	}
+	
+	@Test
+	public void testEmail() {
+		testString.setEmail("shansen20@jcu.edu");
+		assertEquals("shansen20@jcu.edu", testString.getEmail());
+	}
+	
+	@Test
+	public void testEmailFalse() {
+		testString.setEmail("shansen20@jcu.edu");
+		assertNotEquals("shansen20@edu", testString.getEmail());
+	}
+	
+	
+	@Test
+	public void testPhoneNumber() {
+		testString.setPhoneNumber("123-123-1234");
+		assertEquals("123-123-1234", testString.getPhoneNumber());
+	}
+	
+	@Test
+	public void testPhoneNumberFalse() {
+		testString.setPhoneNumber("123-123-1234");
+		assertNotEquals("123-123-4321", testString.getPhoneNumber());
+	}
+	
+	//start of personalInfo
+	
+	@Test
+	public void testDateOfBirth() {
+		testPersonalString.setDateOfBirth("12/25/2000");
+		assertEquals("12/25/2000", testPersonalString.getDateOfBirth());
+	}
+	
+	@Test
+	public void testGender() {
+		testPersonalString.setGender("Female");
+		assertEquals("Female", testPersonalString.getGender());
+	}
+	
+	@Test
+	public void testMaritalStatus() {
+		testPersonalString.setMaritalStatus("Married");
+		assertEquals("Married", testPersonalString.getMaritalStatus());
+	}
+	
+	@Test
+	public void testRace() {
+		testPersonalString.setRace("Caucasian");
+		assertEquals("Caucasian", testPersonalString.getRace());
+	}
+	
+	@Test
+	public void testEmpStatus() {
+		testPersonalString.setEmpStatus("Employed");
+		assertEquals("Employed", testPersonalString.getEmpStatus());
+	}
+	
+	@Test
+	public void testSocialSecurity() {
+		testPersonalString.setSocialSecurity("123-456-7890");
+		assertEquals("123-456-7890", testPersonalString.getSocialSecurity());
+	}
+	
+	@Test
+	public void testContactPref() {
+		testPersonalString.setContactPref("phone");
+		assertEquals("phone", testPersonalString.getContactPref());
+	}
+	
+	@Test
+	public void testLanguage() {
+		testPersonalString.setLanguage("English");
+		assertEquals("English", testPersonalString.getLanguage());
+	}
+	
+	@Test
+	public void testFolderStatus() {
+		testStatString.setFolderStatus("exist");
+		assertEquals("exist", testStatString.getFolderStatus());
+	}
+	
+	@Test
+	public void testPatientID() {
+		testStatString.setPatientID("0000-11111");
+		assertEquals("0000-11111", testStatString.getPatientID());
+	}
+	
+	/*@Test
+	public void testHeight() {
+		testStatString.setHeight(64.0);
+		assertEquals(64.0, testStatDouble.getHeight(), 64.0);
+	}*/
+	
+	/*@Test
+	public void testWeight() {
+		testStatString.setWeight(140.0);
+		assertEquals(140.0, testStatDouble.getWeight(), 140.0);
+	}*/
+	
+	@Test
+	public void testBp() {
+		testStatString.setBp("158/90");
+		assertEquals("158/90", testStatString.getBp());
+	}
+	/*
+	@Test
+	public void testBMI() {
+		testStatString.setBMI(25.2);
+		assertEquals(25.2, testStatDouble.getBMI(), 64.0);
+	}*/
+	
+	@Test
+	public void testSmoker() {
+		testStatString.setSmoker("frequent");
+		assertEquals("frequent", testStatString.getSmoker());
+	}
+	
+	@Test
+	public void testAlcohol() {
+		testStatString.setAlcohol("0.00");
+		assertEquals("0.00", testStatString.getAlcohol());
+	}
+	
+	@Test
+	public void testDrugUse() {
+		testStatString.setDrugUse("never");
+		assertEquals("never", testStatString.getDrugUse());
+	}
+	
+	@Test
+	public void testUploadSuccessful() throws FileNotFoundException {
+		
+		assertTrue(converter.getIsUpload());
+	}
+	
+	@Test
+	public void testisTags() throws FileNotFoundException {
+
+		
+		assertTrue(converter.isTags);
+	    //assertFalse(converter.isTags);
+	}
+
+	
+	@Test
+	public void testfirstName2() {
+		testString.setFirstName(fileFormatB.get(0));
+		testString.setLastName(fileFormatB.get(1));
+		testString.setStreetAddress1(fileFormatB.get(2));
+		//testString.setStreetAddress2(fileFormatB.get(3));
+		testString.setCity(fileFormatB.get(3));
+		testString.setState(fileFormatB.get(4));
+		testString.setZipCode(fileFormatB.get(5));
+		testString.setPhoneNumber(fileFormatB.get(6));
+		assertEquals("Miranda", testString.getFirstName());
+		assertEquals("Jackson", testString.getLastName());
+		assertEquals("300 Smith Street", testString.getStreetAddress1());
+		//assertEquals("Camden Park, NSW, 2568", testString.getStreetAddress2());
+		assertEquals("Camden Park", testString.getCity());
+		assertEquals("NSW", testString.getState());
+		assertEquals("2568", testString.getZipCode());
+		assertEquals("0413699851", testString.getPhoneNumber());
+		
+	}
+	
+	@Test
+	public void testPersonalInfo()
+	{
+		testPersonalString.setDateOfBirth(fileFormatB.get(7));
+		assertEquals("14/08/1986", testPersonalString.getDateOfBirth());
+		
+		testPersonalString.setGender(fileFormatB.get(8));
+		assertEquals("F", testPersonalString.getGender());
+		
+		testPersonalString.setEmpStatus(fileFormatB.get(9));
+		assertEquals("Fashion and other model", testPersonalString.getEmpStatus());
+		
+		testPersonalString.setMaritalStatus(fileFormatB.get(10));
+		assertEquals("Married", testPersonalString.getMaritalStatus());
+		
+		
+	}
+	
+	@Test
+	public void testStats () {
+		
+		testStatString.setSmoker(fileFormatB.get(11));
+		assertEquals("Non-smoker", testStatString.getSmoker());
+		
+		testStatString.setAlcohol(fileFormatB.get(12));
+		assertEquals("Light 0 d", testStatString.getAlcohol());
+		
+		testStatString.setDrugUse(fileFormatB.get(13));
+		assertEquals("None", testStatString.getDrugUse());
+		
+		testStatString.setHeight(fileFormatB.get(14));
+		assertEquals("180 cm.", testStatString.getHeight());
+		
+		testStatString.setWeight(fileFormatB.get(15));
+		assertEquals("89 kg.", testStatString.getWeight());
+		
+
+		testStatString.setBp(fileFormatB.get(16));
+		assertEquals("120/82        mmHg", testStatString.getBp());
+		
+		testStatString.setBMI(fileFormatB.get(17));
+		assertEquals("27.5 (overweight)", testStatString.getBMI());
+		
+		
+	}
+	
+	@Test
+	public void testMedicalHistory() {
+		testMedHistoryString.setAllergies(fileFormatB.get(18));
+		assertEquals("Penicillin", testMedHistoryString.getAllergies());
+		
+		testMedHistoryString.setNumOfAllergies(fileFormatB.get(19));
+		assertEquals("1", testMedHistoryString.getNumOfAllergies());
+		
+		testMedHistoryString.setMedications(fileFormatB.get(20));
+		assertEquals("              ProFlora Capsules [60]                1 per day\n" + 
+				"              Paracetamol 500mg Tablets                1 tablet with meals\n" + 
+				"              Nevirapine Alphapharm 200mg Tablets [60]\n" + 
+				"              Mircera 120 mcg/0.3ml solution\n" + 
+				"              Loxalate 10mg Tablets [28]\n" + 
+				"              Losec Tablets 10mg [30]\n" + 
+				"              Logynon ED [28] x 4\n              \n", testMedHistoryString.getMedications());
+		
+		testMedHistoryString.setNumOfMedications(fileFormatB.get(21));
+		assertEquals("7", testMedHistoryString.getNumOfMedications());
+		
+		
+		testMedHistoryString.setHistory(fileFormatB.get(24));
+		assertEquals("		Social History:\n" + 
+				"		        Very popular person\n" + 
+				"		        Birth Gender: Female\n" + 
+				"		        Orientation: Heterosexual\n" + 
+				"		        \n" + 
+				"		Obstetric History:\n" + 
+				"		        G: 1        T: 0        P:0        L:0        SA:0        TA:0\n" + 
+				"", testMedHistoryString.getHistory());
+		
+		testMedHistoryString.setNumOfHistory(fileFormatB.get(25));
+		assertEquals("4", testMedHistoryString.getNumOfHistory());
+		
+		
+	}
+	
+	@Test
+	public void testCurrentVisits() {
+		
+		testcurrentVisitsString.setProblems(fileFormatB.get(22));
+		assertEquals("              Type 2 diabetes mellitus\n" + 
+				"              Allergy to penicillin\n" + 
+				"              Amoebiasis\n" + 
+				"                Hypertension\n" + 
+				"                Lenitgo maligna\n" + 
+				"                Unspecified nonorganic pscychosis\n", testcurrentVisitsString.getProblems());
+		
+		testcurrentVisitsString.setNumOfProblems(fileFormatB.get(23));
+		assertEquals("6", testcurrentVisitsString.getNumOfProblems());
+	}
+
+	
+}
