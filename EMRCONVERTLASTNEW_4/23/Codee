@@ -1,0 +1,28 @@
+//first and last name 
+		info = scan.nextLine();
+		splitLine = info.split(": ");
+		splitAddress = splitLine[1].split(" ");
+		fileA.add(splitAddress[0]);
+        fileA.add(splitAddress[1]);
+        fileA.add(splitLine[2]);
+
+		//address 1
+		info = scan.nextLine();
+		splitLine = info.split(": ");
+		fileA.add(splitLine[1]);
+		
+		//address 2, city, state
+		info = scan.nextLine();
+		splitLine = info.split(", ");
+		splitAddress = splitLine[1].split(" ");
+		substring = splitLine[0].substring(16);
+		fileA.add(substring + ", " + splitAddress[0]);
+		fileA.add(substring);
+		fileA.add(splitAddress[0]);
+
+		//patient ID
+		info = scan.nextLine();
+		splitLine = info.split(": ");
+		splitAddress = splitLine[1].split(" ");
+		fileA.add(splitAddress[0]);
+		
