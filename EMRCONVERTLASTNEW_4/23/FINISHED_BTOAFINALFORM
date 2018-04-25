@@ -1,0 +1,176 @@
+package emr;
+
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+
+
+
+public class BtoAFinalForm extends emrConvert {
+		
+		emrConvert converter = new emrConvert();
+		ArrayList<String> fileFormatB = new ArrayList<String>();
+		contactInfo c = new contactInfo(fileFormatB);
+		personalInfo p = new personalInfo();
+		patientStats s = new patientStats();
+		MedHistory m = new MedHistory();
+		currentVisits v = new currentVisits();
+		
+		String contactinfo;
+		String personalinfo;
+		String patientstats;
+		String medHistory;
+		String currentVisit;
+		String formatBA;
+	
+	public String getformatBA ()  {
+		formatBA = contactInfoBA() + personalInfoBA() + patientStatsBA() + medicalHistoryBA() + currentVisitsBA();
+		System.out.println(formatBA);
+		return formatBA;
+	}
+
+	public BtoAFinalForm() throws FileNotFoundException {
+
+		converter.uploadFile();
+		
+		fileFormatB = converter.getFileB();
+		
+	}
+	
+	public String contactInfoBA ()  {
+		c.setFirstName(fileFormatB.get(0));
+	    c.setLastName(fileFormatB.get(1));
+	    c.setStreetAddress1(fileFormatB.get(2));
+	    c.setCity(fileFormatB.get(3));
+		c.setState(fileFormatB.get(4));
+		c.setZipCode(fileFormatB.get(5));
+		c.setPhoneNumber(fileFormatB.get(6));
+		contactinfo = "<EMR format A>" + "\n" + "\n";
+		contactinfo += "<patient information>"+ "\n" + "\n";
+     	//contactinfo += "<patient ID>" + c.getPatientID() + "</patient ID>" + "\n";
+		contactinfo += "<name>" + c.getLastName() + ", " + c.getFirstName() + "</name>" + "\n";
+		contactinfo += "<home phone>" + c.getPhoneNumber() + "</home phone>" + "\n";
+		contactinfo += "<address>" + c.getStreetAddress1() + "," + c.getCity() + ", " + c.getState()
+		+ ", " + c.getZipCode() + "</address>"+"\n" + "\n";
+		
+		
+		return contactinfo;	
+	}
+	
+	public String personalInfoBA () {
+		p.setDateOfBirth(fileFormatB.get(7));
+		p.setGender(fileFormatB.get(8));
+		p.setEmpStatus(fileFormatB.get(9));
+		p.setMaritalStatus(fileFormatB.get(10));
+		
+		personalinfo = "<birthdate>" + p.getDateOfBirth() + "</birthdate>" + "\n";
+		personalinfo += "<gender>" + p.getGender()+ "</gender>" + "\n";
+		personalinfo += "<marital status>" + p.getMaritalStatus() + "</marital status>" + "\n";
+		//personalinfo += "<race>" + p.getRace() + "</race>" + "\n";
+		//personalinfo += "<contact by>" + p.getContactPref() + "</contact by>" + "\n";
+		personalinfo += "<employment>" + p.getEmpStatus() + "</employment>" + "\n" + "\n";
+		//personalinfo += "<social security>" + p.getSocialSecurity() + "</social security>" + "\n";
+		
+
+		return personalinfo;
+		
+	}
+	
+	public String patientStatsBA () {
+		s.setSmoker(fileFormatB.get(11));
+		s.setAlcohol(fileFormatB.get(12));
+		s.setDrugUse(fileFormatB.get(13));
+		s.setHeight(fileFormatB.get(14));
+		s.setWeight(fileFormatB.get(15));
+		s.setBp(fileFormatB.get(16));
+		s.setBMI(fileFormatB.get(17));
+		patientstats = "<smoker>" + s.getSmoker() + "</smoker>" + "\n";
+		patientstats += "<drinker>" + s.getAlcohol() + "</drinker>" + "\n" + "\n" ;
+
+		return patientstats;
+		
+	}
+	
+	public String medicalHistoryBA () {
+		m.setAllergies(fileFormatB.get(18));
+		m.setNumOfAllergies(fileFormatB.get(19));
+		m.setMedications(fileFormatB.get(20));
+		m.setNumOfMedications(fileFormatB.get(21));
+		m.setHistory(fileFormatB.get(24));
+		m.setNumOfHistory(fileFormatB.get(25));
+		medHistory = "<number of allergies>" + "\n";
+		medHistory += "		<# of allergy> " + m.getNumOfAllergies() + " </# of allergy>" + "\n";
+		medHistory += "</number of allergies>" + "\n";
+		medHistory += "<allergies>" + "\n";
+		medHistory += "		<allergy>" + m.getAllergies() + "</allergy>" + "\n";
+		medHistory += "</allergies>" + "\n";
+		
+		
+		medHistory += "<number of medications>" + "\n";
+		medHistory += "		<# of medication> " + m.getNumOfMedications() + " </# of medication>" + "\n";
+		medHistory += "</number of medications>" + "\n";
+		medHistory +=  "<medications>" + "\n" ;
+		medHistory +=  "              <medication>" + "\n" + "\n";
+		medHistory +=   m.getMedications();
+		medHistory +=  "              </medication>" + "\n" ;
+		medHistory +=  "</medications>" + "\n"+ "\n";
+		
+		medHistory += "<number of history>" + "\n";
+		medHistory += "		<# of history> " + m.getNumOfHistory() + " </# of history>" + "\n";
+		medHistory += "</number of history>" + "\n";
+		medHistory += "<history>" + "\n";
+		medHistory +=  "              <history>" + "\n" + "\n";
+		medHistory +=   m.getHistory() + "\n";
+		medHistory +=  "              </history>" + "\n" ;
+		medHistory += "</history>" + "\n" + "\n";
+		
+		return medHistory;
+		
+	}
+	
+
+	public String currentVisitsBA () {
+		v.setProblems(fileFormatB.get(22));
+		v.setNumOfProblems(fileFormatB.get(23));
+		
+		currentVisit = "<number of problems>" + "\n";
+		currentVisit += "		<# of problem> " + v.getNumOfProblems()+ " </# of problem>" + "\n";
+		currentVisit += "</number of problems>" + "\n";
+		currentVisit += "<problems>" + "\n";
+		currentVisit +=  "              <problem>" + "\n" + "\n";
+		currentVisit +=   v.getProblems() + "\n";
+		currentVisit +=  "              </problem>" + "\n" ;
+		currentVisit += "</problems>" + "\n";
+		
+		
+		/*currentVisit += "<treatments>" + "\n";
+		currentVisit +=  "		<treatment1>" + v.getTreatments() + "</treatment1>" + "\n";
+		currentVisit +=  "		<treatment2>" + v.getTreatments() + "</treatment2>" + "\n";
+		currentVisit += "</treatments>" + "\n";*/
+		
+		
+	/*	currentVisit += "<lab  report>" + "\n";
+		currentVisit += "		<alk phos>" +v.getLabReport()+ "</alk phos>" + "\n";
+		currentVisit += "		<bun>" +v.getLabReport()+ "</bun>" + "\n";
+		currentVisit += "		<calcium>" +v.getLabReport()+ "</calcium>" + "\n";
+		currentVisit += "		<co2>" +v.getLabReport()+ "</co2>" + "\n";
+		currentVisit += "		<potassium>" +v.getLabReport()+ "</potassium>" + "\n";
+		currentVisit += "		<sodium>" +v.getLabReport()+ "</sodium>" + "\n";
+		currentVisit += "		<uric acid>" +v.getLabReport()+ "</uric acid>" + "\n";
+		currentVisit += "		<triglycerides>" +v.getLabReport()+ "</triglycerides>" + "\n";
+		currentVisit += "		<hdl>" +v.getLabReport()+ "</hdl>" + "\n";
+		currentVisit += "		<ldl>" +v.getLabReport()+ "</ldl>" + "\n";
+		currentVisit += "</lab  report>" + "\n";
+		*/
+		return currentVisit;
+		
+	}
+
+
+	public static void main(String[] args) throws FileNotFoundException  {
+		//BtoAFinalForm m = new BtoAFinalForm(); 
+		//m.getformatBA();
+	}
+
+}
+
+
