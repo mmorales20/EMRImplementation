@@ -26,3 +26,13 @@
 		splitAddress = splitLine[1].split(" ");
 		fileA.add(splitAddress[0]);
 		
+		
+		 c.setFirstName(fileFormatA.get(0));
+		  c.setLastName(fileFormatA.get(1));
+		  c.setPhoneNumber(fileFormatA.get(2));
+		  c.setStreetAddress1(fileFormatA.get(3));
+		  c.setStreetAddress2(fileFormatA.get(4));
+		  c.setCity(fileFormatA.get(5));
+		  c.setState(fileFormatA.get(6));
+		  c.setPatientID(fileFormatA.get(7));
+		
