@@ -1,0 +1,79 @@
+package emr;
+
+public class MedHistory extends emrConvert {
+
+	private String numOfAllergies;
+	private String allergies;
+	private String numOfMedications;
+	private String medications;
+	private int numOfLastVisits; //Nothing for FormatB
+	private String [] lastVisits;
+	private int numOfFamilyHistory;
+	private String [] familyHistory;
+	private String History;
+	private String numOfHistory;
+	
+	
+	
+	public String getHistory() {
+		return History;
+	}
+	public void setHistory(String History) {
+		this.History = History;
+	}
+	public String getNumOfHistory() {
+		return numOfHistory;
+	}
+	public void setNumOfHistory(String numOfHistory) {
+		this.numOfHistory = numOfHistory;
+	}
+	public String getNumOfAllergies() {
+		return numOfAllergies;
+	}
+	public void setNumOfAllergies(String numOfAllergies) {
+		this.numOfAllergies = numOfAllergies;
+	}
+	public String getAllergies() {
+		return allergies;
+	}
+	public void setAllergies(String allergies) {
+		this.allergies = allergies;
+	}
+	public String getNumOfMedications() {
+		return numOfMedications;
+	}
+	public void setNumOfMedications(String numOfMedications) {
+		this.numOfMedications = numOfMedications;
+	}
+	public String getMedications() {
+		return medications;
+	}
+	public void setMedications(String medications) {
+		this.medications = medications;
+	}
+	public int getNumOfLastVisits() {
+		return numOfLastVisits;
+	}
+	public void setNumOfLastVisits(int numOfLastVisits) {
+		this.numOfLastVisits = numOfLastVisits;
+	}
+	public String[] getLastVisits() {
+		return lastVisits;
+	}
+	public void setLastVisits(String[] lastVisits) {
+		this.lastVisits = lastVisits;
+	}
+	public int getNumOfFamilyHistory() {
+		return numOfFamilyHistory;
+	}
+	public void setNumOfFamilyHistory(int numOfFamilyHistory) {
+		this.numOfFamilyHistory = numOfFamilyHistory;
+	}
+	public String[] getFamilyHistory() {
+		return familyHistory;
+	}
+	public void setFamilyHistory(String[] familyHistory) {
+		this.familyHistory = familyHistory;
+	}
+	
+	
