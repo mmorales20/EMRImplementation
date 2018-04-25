@@ -35,4 +35,133 @@
 		  c.setCity(fileFormatA.get(5));
 		  c.setState(fileFormatA.get(6));
 		  c.setPatientID(fileFormatA.get(7));
+		  
+		  
+		  /*	
+		//Empty Lines
+		for(int index = 0; index <10; index++) {
+			info = sc.nextLine();
+		}
+		
+		
+		
+		//First and Last Name, Home Phone
+		info = sc.nextLine();
+		splitLine = info.split(": ");
+		splitAddress = splitLine[1].split(" ");
+		fileA.add(splitAddress[0]);
+        fileA.add(splitAddress[1]);
+        fileA.add(splitLine[2]);
+
+
+		//address 1
+		info = sc.nextLine();
+		splitLine = info.split(": ");
+		fileA.add(splitLine[1]);
+		
+		//address 2, city, state
+		info = sc.nextLine();
+		splitLine = info.split(", ");
+		splitAddress = splitLine[1].split(" ");
+		substring = splitLine[0].substring(16);
+		fileA.add(substring + ", " + splitAddress[0]);
+		fileA.add(substring);
+		fileA.add(splitAddress[0]);
+
+		//patient ID
+		info = sc.nextLine();
+		splitLine = info.split(": ");
+		splitAddress = splitLine[1].split(" ");
+		fileA.add(splitAddress[0]);
+		
+		//birthdate
+		info = sc.nextLine();
+		splitLine = info.split(": ");
+		splitAddress = splitLine[1].split(" ");
+		fileA.add(splitAddress[0]);
+		
+		//gender, marital status
+		info = sc.nextLine();
+		splitLine = info.split(": ");
+		splitAddress = splitLine[1].split(" ");
+		fileA.add(splitAddress[0]);
+		fileA.add(splitLine[2]);
+		
+		//contact by, race
+		info = sc.nextLine();
+		splitLine = info.split(": ");
+		splitAddress = splitLine[1].split(" ");
+		fileA.add(splitAddress[0]);
+		fileA.add(splitLine[2]);
+		
+		//social security, language
+		info = sc.nextLine();
+		splitLine = info.split(": ");
+		splitAddress = splitLine[1].split(" ");
+		fileA.add(splitAddress[0]);
+		fileA.add(splitLine[2]);
+		
+		//skip line
+		info = sc.nextLine();
+		
+		//Employment status
+		info = sc.nextLine();
+		splitLine = info.split(": ");
+		//splitAddress = splitLine[1].split(" ");
+		fileA.add(splitLine[2]);
+		
+		
+		//Empty Lines
+		for(int index = 0; index <5; index++) {
+				info = sc.nextLine();
+		}
+		
+		//problems
+		history = sc.nextLine();
+		
+		while (!history.isEmpty()) { 
+				substring = history.substring(0);
+				problem.add(substring);			
+				temp+=1;
+				history = sc.nextLine();		
+		}
+			
+		String string2 = "";
+
+		for (String s : problem)
+		{
+		    string2 += s + ", ";
+		}
+
+		fileA.add(string2);
+		fileA.add(Integer.toString(temp));
+		
+		
+		//skip lines
+		history = sc.nextLine();
+		history = sc.nextLine();
+		
+		//medicine
+       history = sc.nextLine();
+		
+		while (!history.isEmpty()) { 
+
+			substring = history.substring(0);
+			medicine.add(substring);			
+			temp1+=1;
+			history = sc.nextLine();	
+		}
+			
+		String string3 = "";
+
+		for (String s : medicine)
+		{
+		    string3 += s + ", ";
+		   
+		}
+
+		fileA.add(string3);
+		fileA.add(Integer.toString(temp1-2));*/
+		
+
 		
